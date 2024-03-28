@@ -111,4 +111,10 @@ public class SubCategoryServiceImpl extends AbstractRawService<SubCategory> impl
 		return domainToDto(subCategory);
 	}
 
+	@Override
+	public SubCategory findBySubCategoryName(String subCategoryName) {
+		// TODO Auto-generated method stub
+		return repo.findBySubCategoryName(subCategoryName);
+	}
+
 }

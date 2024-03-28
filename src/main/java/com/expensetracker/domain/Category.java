@@ -3,7 +3,9 @@ package com.expensetracker.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,11 +20,12 @@ public class Category extends AuditEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(unique = true)
 	private String categoryName;
 
 	private String categoryDescription;
 
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
 	private List<SubCategory> subCategories = new ArrayList<>();
 
 	public Long getId() {
@@ -55,6 +58,12 @@ public class Category extends AuditEntity {
 
 	public void setSubCategories(List<SubCategory> subCategories) {
 		this.subCategories = subCategories;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", categoryName=" + categoryName + ", categoryDescription=" + categoryDescription
+				+ ", subCategories=" + subCategories + "]";
 	}
 
 }

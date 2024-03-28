@@ -9,4 +9,6 @@ import com.expensetracker.domain.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long>, JpaSpecificationExecutor<Category> {
 
-}
+	Category findByCategoryName(String categoryName);
+
+}

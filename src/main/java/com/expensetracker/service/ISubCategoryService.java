@@ -22,4 +22,6 @@ public interface ISubCategoryService extends IService<SubCategory> {
 
 	SubCategoryResponse partialUpdate(Map<String, Object> req);
 
+	SubCategory findBySubCategoryName(String subCategoryName);
+
 }

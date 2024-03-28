@@ -23,4 +23,6 @@ public interface ICategoryService extends IService<Category> {
 
 	Category dtoToDomain(CategoryRequest req);
 
+	Category findByCategoryName(String string);
+
 }

@@ -105,4 +105,10 @@ public class CategoryServiceImpl extends AbstractRawService<Category> implements
 			return null;
 		}
 	}
+
+	@Override
+	public Category findByCategoryName(String categoryName) {
+
+		return repo.findByCategoryName(categoryName);
+	}
 }
