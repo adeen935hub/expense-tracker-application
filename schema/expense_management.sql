@@ -59,13 +59,15 @@ CREATE TABLE sub_category_mst (
   
 );
 
+ALTER TABLE `sub_category_mst` ADD UNIQUE `uni_idx_sub_category_name_category_id`(`sub_category_name`, `category_id`);
+
 CREATE TABLE expense_detail_trn (
   id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   expense_amount decimal(10,2) NOT NULL,
   expense_date timestamp NOT NULL,
   category_id BIGINT NOT NULL,
   FOREIGN KEY (category_id) REFERENCES category_mst(id),
-  sub_category_id BIGINT NOT NULL,
+  sub_category_id BIGINT,
   FOREIGN KEY (sub_category_id) REFERENCES sub_category_mst(id),
   created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP

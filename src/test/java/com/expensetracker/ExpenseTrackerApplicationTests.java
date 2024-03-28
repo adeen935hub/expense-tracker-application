@@ -1,4 +1,4 @@
-package com.expensemanagement;
+package com.expensetracker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,7 @@ class ExpenseTrackerApplicationTests {
 	private PasswordEncoder passwordEncoder;
 
 	@Test
+	// @Ignore
 	void contextLoads() {
 		String originalInput = "admin@123";
 		String encodedString = passwordEncoder.encode(originalInput);
